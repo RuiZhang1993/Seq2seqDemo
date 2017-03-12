@@ -87,7 +87,7 @@ for seq in next(batches)[:10]:
     print(seq)
 
 def next_feed():
-    batch = next(batches)[:5]
+    batch = next(batches)
     encoder_inputs_, _ = helpers.batch(batch)
     decoder_targets_, _ = helpers.batch(
         [(sequence) + [EOS] + [PAD] * 2 for sequence in batch]
@@ -104,7 +104,7 @@ def next_feed():
 
 loss_track = []
 
-max_batches = 10000
+max_batches = 3001
 batches_in_epoch = 1000
 
 try:
